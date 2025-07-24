@@ -1,24 +1,20 @@
 import React from 'react'
-import { useDispatch , useSelector } from 'react-redux'
-import { ChangeName } from './redux/store'
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Home from './Home'
+import Aboutus from './Aboutus'
+import Navbar from './Navbar'
 
 const App = () => {
 
-const dispatch = useDispatch()
-
-const userInfo = useSelector(state=>state)
-
-console.log(userInfo,'userInfo');
 
   return (
-    <div>
-      <button onClick={() => dispatch(ChangeName("Bilal")) }>Button 1</button>
-
-      <button onClick={() => dispatch(ChangeName("Nouman")) }>Button 2</button>
-
-      <h1></h1>
-
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path="/aboutus" element={<Aboutus />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
