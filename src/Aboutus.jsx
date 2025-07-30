@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { ChangeName } from './redux/store';
+import { ChangeName } from './redux/userSlice';
 
 
 const Aboutus = () => {

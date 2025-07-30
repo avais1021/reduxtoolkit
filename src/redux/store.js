@@ -1,15 +1,12 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {configureStore} from "@reduxjs/toolkit"
 
-const userSlice = createSlice({
-    name : "user",
-    initialState : {name : ""},
-    reducers : {
-        ChangeName : (state , action) => {
-            state.name = action.payload
-        }
+import userReducers from './userSlice'
+
+import studentsReducers from "./studentsSlice"
+
+export const store = configureStore({
+    reducer : {
+        user : userReducers,
+        student : studentsReducers,
     }
 })
-
-export const {ChangeName} = userSlice.actions
-
-export default userSlice.reducer

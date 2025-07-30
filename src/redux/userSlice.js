@@ -1,9 +1,15 @@
-import {configureStore} from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
-import userReducers from './store'
-
-export const store = configureStore({
-    reducer : {
-        user : userReducers,
+const userSlice = createSlice({
+    name : "user",
+    initialState : {name : ""},
+    reducers : {
+        ChangeName : (state , action) => {
+            state.name = action.payload
+        }
     }
 })
+
+export const {ChangeName} = userSlice.actions
+
+export default userSlice.reducer
